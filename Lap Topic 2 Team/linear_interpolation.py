@@ -3,6 +3,10 @@
 # "I have not given or received any unauthorized aid on this assignment."
 #
 # Names: Kennyson Le
+# Aissata Sidibe
+# David Troyer
+# Kingston Jackson
+# Carter Cutright
 # Section: 519
 # Assignment: Lab Topic 2 (Team) Part 2
 # Date: 27 8 2026
