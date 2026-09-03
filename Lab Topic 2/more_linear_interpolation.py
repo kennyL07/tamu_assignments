@@ -13,7 +13,9 @@ pos = (8, 6, 7)
 t1 = 85
 pos2 = (-5,30,9)
 
-slope = ((pos2[0] - pos[0]) / (t1-t0), (pos2[1] - pos[1]) / (t1-t0), (pos2[2] - pos[2]) / (t1-t0))
+slope = ((pos2[0] - pos[0]) / (t1-t0), 
+        (pos2[1] - pos[1]) / (t1-t0), 
+        (pos2[2] - pos[2]) / (t1-t0))
 def interpolate(slope, pos, t0, tx) -> tuple: # Substitue input with t
     return (slope[0] * (tx-t0) + pos[0], slope[1] * (tx-t0) + pos[1], slope[2] * (tx-t0) + pos[2])
 

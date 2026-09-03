@@ -3,7 +3,7 @@
 #   "I have not given or received any unauthorized aid on this assignment."
 #
 # Name:         Kennyson Le 
-# Section:      519
+# Section:      567
 # Assignment:   THE ASSIGNMENT NUMBER (e.g. Lab 1b-2)
 # Date:         DAY MONTH 2026
 #

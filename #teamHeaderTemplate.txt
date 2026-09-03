@@ -3,10 +3,10 @@
 # "I have not given or received any unauthorized aid on this assignment."
 #
 # Names: Kennyson Le
-# TEAM NUMBER 2
-# TEAM NUMBER 3
-# TEAM NUMBER 4
-# Section: 519
-# Assignment: THE ASSIGNMENT NUMBER
-# Date: DAY MONTH 2026
+# Adila Hansbhai
+# Kingston Jackson
+# Tevya Birnbaum
+# Section: 567
+# Assignment: Lab 3
+# Date: 3 9 2026
 #
