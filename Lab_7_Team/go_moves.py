@@ -25,12 +25,13 @@ def printBoard():
             print(board[len(board) - i - 1][j], end='')
         print()
 
-# Use a variable to keep track of white/black turns
+# Use a turn to keep track of white/black turns
 turn = 0
 userInput = ''
 x = ''
 y = ''
 piece = ''
+
 # While input isn’t stop:
 # Compare variable to determine turn
 # Ask user to place a stone on the board (black first)
@@ -45,12 +46,12 @@ while (turn <= 80 and x != 'stop' and y != 'stop'):
         print('Black:')
     else:
         print('White:')
-    x = int(input("Enter an X coordinate from 1-9:"))
-    y = int(input("Enter an Y coordinate from 1-9:"))
+    x = int(input("Enter an X coordinate from 1-9:")) - 1
+    y = int(input("Enter an Y coordinate from 1-9:")) - 1
     while (x >= len(board) or y >= len(board) or x < 0 or y < 0):
         print("Please Enter a valid coordinate")
-        x = int(input("Enter an X coordinate from 1-9:"))
-        y = int(input("Enter an Y coordinate from 1-9:"))
+        x = int(input("Enter an X coordinate from 1-9:")) - 1
+        y = int(input("Enter an Y coordinate from 1-9:")) - 1
     if turn % 2 == 0:
         piece = chr(9679) 
     else: 
