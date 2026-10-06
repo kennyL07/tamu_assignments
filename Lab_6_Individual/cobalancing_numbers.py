@@ -5,13 +5,14 @@
 # Name:         Kennyson Le 
 # Section:      567
 # Assignment:   Lab 6
-# Date:         DAY MONTH 2026
+# Date:         6 10 2026
 #
 
 cobalancing_num = int(input("Enter a value for n: "))
 
-leftSide = sum(range(cobalancing_num+1)) # Sum of all values from 0 - n (Basically 1 - n)
-
+leftSide = 0
+for i in range(cobalancing_num+1): # Sum of all values from 0 - n (Basically 1 - n)
+    leftSide += i
 r = 0
 rightSide = 0
 while(rightSide < leftSide): # Stops when right side >= leftSide

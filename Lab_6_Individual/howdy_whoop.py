@@ -12,10 +12,11 @@ interger1 = int(input("Enter an integer: "))
 interger2 = int(input("Enter another integer: "))
 
 for i in range(1, 101):
-    if i % interger1 == 0:
+    if i % interger1 == 0 and i % interger2 == 0:
+        print("Howdy Whoop")
+    elif i % interger1 == 0:
         print("Howdy")
-        continue
-    if i % interger2 == 0:
+    elif i % interger2 == 0:
         print("Whoop")
-        continue
-    print(i)
+    else:
+        print(i) # Print number if can't evenly divise

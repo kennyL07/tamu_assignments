@@ -14,7 +14,7 @@
 from math import log
 
 x = float(input("Enter a value for x: ")) # storing user input as 'x'
-while x < 1 or x > 2:
+while x <= 0 or x > 2:
     x = float(input("Out of range! Try again: ")) # runs loop again if user inputs an invalid value
 tolerance = float(input("Enter the tolerance: ")) # storing user input as "tolerance"
 

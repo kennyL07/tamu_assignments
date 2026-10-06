@@ -5,12 +5,22 @@
 # Name:         Kennyson Le
 # Section:      567
 # Assignment:   Lab 7 Individiual
-# Date:         DAY MONTH 2026
+# Date:         6 10 2026
 #
 
 name = input("What is your name? ")
 
-print(f"{name}, {name}, Bo-B{name[1:len(name)]}")
-print(f"Banana-Fana Fo-F{name[1:len(name)]}")
-print(f"Me Mi Mo-M{name[1:len(name)]}")
+vowels = "aeiouyAEIOUY" # Y is considered a vowel
+new_name = name
+if name[0] in vowels:
+    new_name = name[0].lower() + name[1:]
+else:
+    i = 0
+    while(not (new_name[0] in vowels)):
+        i += 1
+        new_name = name[i:]
+
+print(f"{name}, {name}, Bo-B{new_name}")
+print(f"Banana-Fana Fo-F{new_name}")
+print(f"Me Mi Mo-M{new_name}")
 print(f"{name}!")

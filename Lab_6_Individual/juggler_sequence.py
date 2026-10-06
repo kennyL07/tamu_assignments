@@ -23,6 +23,6 @@ while (current_num != 1):
     juggler_seq = juggler_seq + ", " + str(current_num)
     iterations += 1
 
-print(f"The Juggler sequence starting at {n} is: ")
+print(f"The Juggler sequence starting at {n} is:")
 print(juggler_seq)
-print(f"It took {iterations} to reach 1")
+print(f"It took {iterations} iterations to reach 1")
