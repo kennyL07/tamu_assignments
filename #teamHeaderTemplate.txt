@@ -7,6 +7,6 @@
 # Kingston Jackson
 # Tevya Birnbaum
 # Section: 567
-# Assignment: Lab 3
-# Date: 3 9 2026
+# Assignment: Lab 9 Team
+# Date: 20 10 2026
 #
