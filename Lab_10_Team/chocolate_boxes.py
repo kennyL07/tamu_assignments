@@ -4,7 +4,7 @@
 #
 # Name:         Kennyson Le 
 # Section:      567
-# Assignment:   THE ASSIGNMENT NUMBER (e.g. Lab 1b-2)
+# Assignment:   Team Lab 10
 # Date:         27 11 2026
 #
 
