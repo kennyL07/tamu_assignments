@@ -20,7 +20,10 @@ keys = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "cid"]
 validPassports = open("valid_passports2.txt", "w")
 
 with open(filename, "r") as file:
-    for line in file:
+    lines = file.readlines()
+    lines.append("\n")
+    
+    for line in lines:
         if line.strip() == "":
             # byr – Birth year – four digits, between 1922 and 2010, inclusive
             # iyr – Issue year – four digits, between 2016 and 2026, inclusive
@@ -33,64 +36,60 @@ with open(filename, "r") as file:
             # pid – Passport ID – not required
             # cid – Country ID – a three-digit number, NOT including leading zeroes
             
-            # Do logic here
             data = fullPassportEntry.strip().split()
             keys = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "cid"]
             valid = True
-            for item in data:
-                key, value = item.split(":")
+            
+            for i in data:
+                key, value = i.split(":")
                 passDict[key] = value
+            
             for key in keys:
-                if key == "pid":
-                    continue
                 if key not in passDict:
                     valid = False
-                    break
-                if key == "byr":
-                    if not (1922 <= int(passDict[key]) <= 2010):
+
+            if valid:
+                if passDict["byr"]:
+                    if not (1922 <= int(passDict["byr"]) <= 2010) or len(passDict["byr"]) != 4 or passDict["byr"].strip("0123456789") != "":
                         valid = False
-                        break
-                if key == "iyr":
-                    if not (2016 <= int(passDict[key]) <= 2026):
+                if passDict["iyr"]:
+                    if not (2016 <= int(passDict["iyr"]) <= 2026) or len(passDict["iyr"]) != 4 or passDict["iyr"].strip("0123456789") != "":
                         valid = False
-                        break
-                if key == "eyr":
-                    if not (2026 <= int(passDict[key]) <= 2036):
+                if passDict["eyr"]:
+                    if not (2026 <= int(passDict["eyr"]) <= 2036) or len(passDict["eyr"]) != 4 or passDict["eyr"].strip("0123456789") != "":
                         valid = False
-                        break
-                if key == "hgt":
-                    if passDict[key].endswith("cm"):
-                        height = int(passDict[key][:-2])
-                        if not (150 <= height <= 193):
+                        
+                if passDict["hgt"]:
+                    height = passDict["hgt"][:-2]
+                    if height == "" or height.strip("0123456789") != "": # Use strip instead of checking each individual character in a loop
+                        valid = False
+                    elif passDict["hgt"].endswith("cm"):
+                        if not (150 <= int(height) <= 193):
                             valid = False
-                            break
-                    elif passDict[key].endswith("in"):
-                        height = int(passDict[key][:-2])
-                        if not (59 <= height <= 76):
+                    elif passDict["hgt"].endswith("in"):
+                        if not (59 <= int(height) <= 76):
                             valid = False
-                            break
-                if key == "hcl":
-                    if (passDict[key].startswith("#") and len(passDict[key]) == 7):
-                        for i in passDict[key][1:]:
-                            if i not in "0123456789abcdef":
-                                valid = False
-                                break
                     else:
                         valid = False
-                        break
-                if key == "ecl":
-                    if passDict[key] not in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]:
+
+                if passDict["hcl"]:
+                    if not passDict["hcl"].startswith("#") or len(passDict["hcl"]) != 7 or passDict["hcl"][1:].strip("0123456789abcdef") != "":
+                        # for i in passDict["hcl"][1:]:
+                        #     if i not in "0123456789abcdef":
                         valid = False
-                        break
-                if key == "cid":
-                    if not (passDict[key].isdigit() and len(str(int(passDict[key]))) == 3):
+                if passDict["ecl"]:
+                    if passDict["ecl"] not in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]:
                         valid = False
-                        break
+                if passDict["cid"]:
+                    if len(passDict["cid"]) != 3 or passDict["cid"].strip("0123456789") != "" or passDict["cid"][0] == "0":
+                        valid = False
             if valid:
+                if count > 0:
+                    validPassports.write("\n")      # new line only after the first one
                 count += 1
                 for i in rawPassportEntries:
-                    validPassports.write(i)
-                validPassports.write("\n")
+                    validPassports.write(i.strip() + "\n")
+
             fullPassportEntry = ""
             rawPassportEntries = []
             passDict = {}
@@ -98,65 +97,5 @@ with open(filename, "r") as file:
             fullPassportEntry += line.strip() + " "
             rawPassportEntries.append(line)
 
-data = fullPassportEntry.strip().split()
-keys = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "cid"]
-valid = True
-for item in data:
-    key, value = item.split(":")
-    passDict[key] = value
-for key in keys:
-    if key not in passDict:
-        valid = False
-        break
-    if key == "byr":
-        if not (1922 <= int(passDict[key]) <= 2010):
-            valid = False
-            break
-    if key == "iyr":
-        if not (2016 <= int(passDict[key]) <= 2026):
-            valid = False
-            break
-    if key == "eyr":
-        if not (2026 <= int(passDict[key]) <= 2036):
-            valid = False
-            break
-    if key == "hgt":
-        if passDict[key].endswith("cm"):
-            height = int(passDict[key][:-2])
-            if not (150 <= height <= 193):
-                valid = False
-                break
-        elif passDict[key].endswith("in"):
-            height = int(passDict[key][:-2])
-            if not (59 <= height <= 76):
-                valid = False
-                break
-    if key == "hcl":
-        if (passDict[key].startswith("#") and len(passDict[key]) == 7):
-            for i in passDict[key][1:]:
-                if i not in "0123456789abcdef":
-                    valid = False
-                    break
-        else:
-            valid = False
-            break
-    if key == "ecl":
-        if len(passDict[key]) == 3 and passDict[key] not in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]:
-            valid = False
-            break
-    if key == "cid":
-        if not (passDict[key].isdigit() and len(str(int(passDict[key]))) == 3):
-            valid = False
-            break
-if valid:
-    count += 1
-    for i in rawPassportEntries:
-        validPassports.write(i)
-    validPassports.write("\n")
-fullPassportEntry = ""
-rawPassportEntries = []
-passDict = {}
-
 validPassports.close()
-# output number of valid passports
 print(f"There are {count} valid passports")

@@ -16,9 +16,6 @@ iyr:2017 hgt:153cm hcl:#3a5c06
 
 hgt:70in hcl:#a52791 ecl:oth iyr:2025 byr:1978 cid:196 eyr:2035
 
-iyr:2019
-byr:1970 eyr:2029 hcl:#e75d34 hgt:156 ecl:brn cid:869
-
 pid:421148110 ecl:hzl hgt:157cm hcl:#2f79a4 cid:395
 byr:1932
 iyr:2023 eyr:2035
@@ -73,9 +70,6 @@ cid:626 iyr:2019 eyr:2034 hgt:170cm byr:1994
 hgt:192cm iyr:2017 ecl:hzl eyr:2033
 byr:1943 cid:404 pid:909169194 hcl:#f9d5b6
 
-byr:1926 ecl:brn iyr:2019 hgt:120 hcl:#c6e952
-cid:296 pid:176311405 eyr:2026
-
 cid:313 hcl:#e480d5 iyr:2016 ecl:gry pid:657307442 hgt:65in byr:1938 eyr:2034
 
 hcl:#873b15 eyr:2034 iyr:2016 hgt:180cm cid:335
@@ -127,8 +121,6 @@ pid:362088859 hgt:183cm byr:1978 cid:867 ecl:blu iyr:2026
 
 hgt:62in byr:2006 cid:935
 hcl:#04e537 iyr:2018 eyr:2034 ecl:blu
-
-ecl:brn iyr:2026 hgt:155 byr:1932 pid:558643202 cid:528 hcl:#a6f214 eyr:2032
 
 hgt:178cm hcl:#58c20b
 iyr:2016
@@ -240,4 +232,3 @@ hgt:59in iyr:2022 eyr:2029
 
 pid:417795542 iyr:2019 hcl:#8af1b9
 ecl:grn byr:1948 cid:907 hgt:71in eyr:2034
-
