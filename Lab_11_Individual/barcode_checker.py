@@ -8,8 +8,8 @@
 # Date:         6 11 2026
 #
 
-barcodeFile = input("Enter the name of the file:")
-validCodesFile = 
+barcodeFile = input("Enter the name of the file: ")
+validCodesFile = open("valid_barcodes.txt", "w")
 totalValid = 0
 
 with open(barcodeFile, "r") as codes:
@@ -20,5 +20,8 @@ with open(barcodeFile, "r") as codes:
         group2 = code[1:12:2]
         group1Nums = [int(a) for a in group1]
         group2Nums = [int(b) for b in group2]
-        if 10 - int(str(sum(group2Nums) * 3 + sum(group1Nums))[-1]) == int(code[-1]):
+         # Need to convert back into string to check index -1 for zero ending barcodes
+        if str(10 - int(str(sum(group2Nums) * 3 + sum(group1Nums))[-1]))[-1] == code[-1]:
             totalValid += 1
+            validCodesFile.write("".join(code)+"\n")
+print(f"There are {totalValid} valid barcodes")
