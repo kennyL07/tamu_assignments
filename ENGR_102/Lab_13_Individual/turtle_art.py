@@ -10,7 +10,7 @@
 
 import turtle
 
-def parta(turnAngle: float):
+def parta(turnAngle: float) -> int:
     # If the turn angle is less than 90, it is an interior angle
     if turnAngle <= 90:
         interiorAngle = turnAngle
@@ -19,4 +19,15 @@ def parta(turnAngle: float):
     turns = 1
     while interiorAngle * turns % 360 != 0:
         turns += 1
-    return turns
+    return int(turns)
+
+def partb(sequence: str) -> None:
+    turtle.dot(10, "red")
+    for i in sequence:
+        if i == "0":
+            turtle.left(30)
+            turtle.forward(30)
+        if i == "1":
+            turtle.left(-114)
+            turtle.forward(30)
+    turtle.done()
